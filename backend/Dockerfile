@@ -8,11 +8,14 @@ RUN npm ci --only=production && npm cache clean --force
 # ---- Production stage ----
 FROM node:20-alpine AS production
 
+# Fix 1: Update Alpine packages to patch base-image vulnerabilities
+RUN apk update && apk upgrade --no-cache
+
 # Security: run as non-root user
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
-# Security: install minimal init system
-RUN apk --no-cache add dumb-init=1.2.5-r3
+# Fix 2: Remove the rigid version pin (=1.2.5-r3) which forces old/vulnerable binaries
+RUN apk --no-cache add dumb-init
 
 WORKDIR /app
 

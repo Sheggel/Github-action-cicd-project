@@ -238,10 +238,10 @@ jobs:
           SHORT_SHA=${GITHUB_SHA::7}
           
           # Update Frontend
-          sed -i "s|jerney-frontend:PLACEHOLDER|jerney-frontend:${SHORT_SHA}|g" k8s/frontend-deployment.yaml
+          sed -i "s|jerney-frontend:PLACEHOLDER|jerney-frontend:${SHORT_SHA}|g" k8s/Frontend/frontend-deployment.yaml
           
           # Update Backend
-          sed -i "s|jerney-backend:PLACEHOLDER|jerney-backend:${SHORT_SHA}|g" k8s/backend-deployment.yaml
+          sed -i "s|jerney-backend:PLACEHOLDER|jerney-backend:${SHORT_SHA}|g" k8s/Backend/backend-deployment.yaml
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
