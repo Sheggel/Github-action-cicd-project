@@ -15,6 +15,7 @@ RUN apk update && apk upgrade --no-cache
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
 # Fix 2: Remove the rigid version pin (=1.2.5-r3) which forces old/vulnerable binaries
+# hadolint ignore=DL3018
 RUN apk --no-cache add dumb-init
 
 WORKDIR /app
