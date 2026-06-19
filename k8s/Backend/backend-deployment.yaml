@@ -40,7 +40,7 @@ spec:
       containers:
         - name: backend
 
-          image: ghcr.io/${{ github.repository }}/jerney-backend:PLACEHOLDER
+          image: ghcr.io/${{ github.repository }}/jerney-backend:72c178c
           imagePullPolicy: Always
 
           ports:

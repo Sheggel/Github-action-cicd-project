@@ -24,7 +24,7 @@ spec:
 
       containers:
         - name: frontend
-          image: ghcr.io/${{ github.repository }}/jerney-frontend:PLACEHOLDER
+          image: ghcr.io/${{ github.repository }}/jerney-frontend:72c178c
 
           ports:
             - containerPort: 8080
